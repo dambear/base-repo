@@ -1,0 +1,102 @@
+# .github/stale.yml
+# OPTIMIZED FOR SMALL TEAMS (1–4 people) – 2025 edition
+
+daysUntilStмак: 60          # issues → 2 months
+daysUntilClose: 30          # +30 days warning
+
+# PRs are stricter (we want fast cycle time)
+pullRequests:
+  daysUntilStale: 30
+  daysUntilClose: 14
+  staleLabel: needs-update
+  exemptLabels:
+    - WIP
+    - "work in progress"
+    - "in progress"
+    - "ready for review"
+    - "needs review"
+    - "awaiting review"
+    - draft
+
+# Bugs get extra breathing room
+issues:
+  daysUntilStale: 90
+  daysUntilClose: 45
+  onlyLabels:
+    - bug
+    - Bug
+    - "type: bug"
+
+# Global safety nets
+exemptLabels:
+  - pinned
+  - security
+  - critical
+  - high-priority
+  - "good first issue"
+  - "help wanted"
+  - roadmap
+  - discussion
+  - evergreen
+  - "do not close"
+
+exemptAssignees: true
+exemptMilestones: true
+exemptProjects: true
+
+# Friendly messages (still the nicest ones on GitHub)
+staleLabel: needs-update
+
+staleIssueMessage: |
+  ## Friendly Reminder
+
+  Hello! This issue hasn't had activity in **2 months**.
+
+  ### Small Team Notes:
+  - Still relevant? → just comment
+  - Need help? → tag someone
+  - Already fixed? → let us know
+
+  *Will auto-close in 30 days if nothing happens.*
+
+  ---
+  We're a tiny team — thanks for your patience!
+
+closeIssueMessage: |
+  ## Archived
+
+  Closing after **3 months** of inactivity.
+
+  ### Want it back?
+  - Reopen anytime
+  - Or open a fresh issue with updated info
+
+  ---
+  Thanks for contributing!
+
+stalePrMessage: |
+  ## PR Inactivity Notice
+
+  This pull request hasn't been updated in **1 month**.
+
+  ### Small Team Reminder:
+  - Still working on it? → comment or push
+  - Ready for review? → remove "draft" / add "ready for review"
+  - Abandoned? → we'll close in 14 days
+
+  ---
+  Tag teammates if you need a review!
+
+closePrMessage: |
+  ## PR Closed (inactivity)
+
+  Closed after **1.5 months** of no activity.
+
+  ### Want to continue?
+  - Just reopen
+  - Or open a fresh PR
+
+  ---
+  Your work is appreciated!
+
+

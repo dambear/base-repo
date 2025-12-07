@@ -1,0 +1,16 @@
+# .github/workflows/pr-title-check.yml
+
+name: PR Title Check
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+
+jobs:
+  title:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: amannn/action-semantic-pull-request@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+

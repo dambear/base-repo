@@ -1,0 +1,15 @@
+# .github/dependabot.yml
+
+version: 2
+updates:
+  - package-ecosystem: ""     # ← auto-detects npm, maven, gradle, docker, etc.
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 20
+    labels: [dependencies, auto-update]
+
+
+
+

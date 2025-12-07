@@ -1,0 +1,31 @@
+# .github/workflows/branch-check.yml
+name: Enforce Branch Naming
+on:
+  push:
+    branches-ignore: [main, master, develop, dev, release/**, hotfix/**]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate branch name
+        run: |
+          BRANCH="${{ github.ref_name }}"
+          if [[ "$BRANCH" =~ ^(feature|fix|chore|hotfix|docs|refactor)/ ]]; then
+            echo "Branch name '$BRANCH' follows team convention"
+            exit 0
+          else
+            echo "::error::Invalid branch name: '$BRANCH'"
+            echo ""
+            echo "Required format: type/description"
+            echo "Allowed types: feature/ fix/ chore/ hotfix/ docs/ refactor/"
+            echo "Examples:"
+            echo "  feature/user-auth"
+            echo "  fix/login-crash"
+            echo "  chore/update-deps"
+            echo ""
+            echo "Quick fix: git branch -m $BRANCH feature/$BRANCH"
+            exit 1
+          fi
+
+

@@ -1,0 +1,34 @@
+# .github/workflows/commitlint.yml   ← ONLY file you need
+name: Commit Message Check
+on:
+  push:
+    branches: ['**']
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  commitlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: wagoid/commitlint-github-action@v6
+        with:
+          config: |
+            extends:
+              - '@commitlint/config-conventional'
+            rules:
+              subject-case:
+                - 2
+                - always
+                - sentence-case
+              header-max-length:
+                - 2
+                - always
+                - 72
+
+
+
+
+
